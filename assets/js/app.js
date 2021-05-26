@@ -167,7 +167,7 @@ var smokeLabel = labelsGroup.append("text")
   .classed("active", true)
   .text("Smoking Score");
 
-var albumsLabel = labelsGroup.append("text")
+var obesity = labelsGroup.append("text")
   .attr("x", 0)
   .attr("y", 40)
   .attr("value", "obesity") // value to grab for event listener
@@ -212,8 +212,8 @@ labelsGroup.selectAll("text")
       circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
 
       // changes classes to change bold text
-      if (chosenXAxis === "test2") {
-        albumsLabel
+      if (chosenXAxis === "obesity") {
+        obesity
           .classed("active", true)
           .classed("inactive", false);
         smokeLabel
@@ -221,7 +221,7 @@ labelsGroup.selectAll("text")
           .classed("inactive", true);
       }
       else {
-        albumsLabel
+        obesity
           .classed("active", false)
           .classed("inactive", true);
         smokeLabel
