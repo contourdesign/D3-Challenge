@@ -1,3 +1,5 @@
+// (づ｡◕‿‿◕｡)づ
+
 // set up svg attributes
 var svgWidth = 960;
 var svgHeight = 500;
@@ -27,7 +29,7 @@ var chartGroup = svg.append("g")
 // ----------------------------
 
 // Initial Params
-var chosenXAxis = "smokes_test";
+var chosenXAxis = "smokes";
 
 // function used for updating x-scale var upon click on axis label
 function xScale(timesData, chosenXAxis) {
@@ -69,11 +71,11 @@ function updateToolTip(chosenXAxis, circlesGroup) {
 
   var label;
 
-  if (chosenXAxis === "smokes_test") {
-    label = "SMOKES TEST:";
+  if (chosenXAxis === "smokes") {
+    label = "Smokes:";
   }
   else {
-    label = "something else:";
+    label = "Obesity:";
   }
 
   var toolTip = d3.tip()
@@ -158,19 +160,19 @@ var circlesGroup = chartGroup.selectAll("circle")
 var labelsGroup = chartGroup.append("g")
   .attr("transform", `translate(${width / 2}, ${height + 20})`);
 
-var hairLengthLabel = labelsGroup.append("text")
+var smokeLabel = labelsGroup.append("text")
   .attr("x", 0)
   .attr("y", 20)
-  .attr("value", "smokes_test") // value to grab for event listener
+  .attr("value", "smokes") // value to grab for event listener
   .classed("active", true)
-  .text("This is a test label 1");
+  .text("Smoking Score");
 
 var albumsLabel = labelsGroup.append("text")
   .attr("x", 0)
   .attr("y", 40)
-  .attr("value", "test2") // value to grab for event listener
+  .attr("value", "obesity") // value to grab for event listener
   .classed("inactive", true)
-  .text("This is a test label 2");
+  .text("Obesity Score");
 
 // append y axis
 chartGroup.append("text")
@@ -179,7 +181,7 @@ chartGroup.append("text")
   .attr("x", 0 - (height / 2))
   .attr("dy", "1em")
   .classed("axis-text", true)
-  .text("This is test label 3");
+  .text("Poverty Score");
 
 // updateToolTip function above csv import
 var circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
@@ -214,7 +216,7 @@ labelsGroup.selectAll("text")
         albumsLabel
           .classed("active", true)
           .classed("inactive", false);
-        hairLengthLabel
+        smokeLabel
           .classed("active", false)
           .classed("inactive", true);
       }
@@ -222,7 +224,7 @@ labelsGroup.selectAll("text")
         albumsLabel
           .classed("active", false)
           .classed("inactive", true);
-        hairLengthLabel
+        smokeLabel
           .classed("active", true)
           .classed("inactive", false);
       }
@@ -232,3 +234,4 @@ labelsGroup.selectAll("text")
 console.log(error);
 });
 
+// (づ｡◕‿‿◕｡)づ
