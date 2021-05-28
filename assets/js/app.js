@@ -150,10 +150,11 @@ var circlesGroup = chartGroup.selectAll("circle")
   .data(timesData)
   .enter()
   .append("circle")
+  
   .attr("cx", d => xLinearScale(d[chosenXAxis]))
   .attr("cy", d => yLinearScale(d.poverty))
   .attr("r", 20)
-  .attr("fill", "pink")
+  .attr("fill", "green")
   .attr("opacity", ".5");
 
 // Create group for two x-axis labels
@@ -183,7 +184,7 @@ chartGroup.append("text")
   .classed("axis-text", true)
   .text("Poverty Score");
 
-// updateToolTip function above csv import
+
 var circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
 
 // x axis labels event listener
@@ -196,9 +197,10 @@ labelsGroup.selectAll("text")
       // replaces chosenXAxis with value
       chosenXAxis = value;
 
-      // console.log(chosenXAxis)
+      console.log(chosenXAxis)
 
-      // functions here found above csv import
+      
+
       // updates x scale for new data
       xLinearScale = xScale(timesData, chosenXAxis);
 
