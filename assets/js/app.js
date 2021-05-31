@@ -85,7 +85,7 @@ function updateToolTip(chosenXAxis, circlesGroup) {
       return (`${d.abbr}<br>${label} ${d[chosenXAxis]}`);
     });
 
-  circlesGroup.call(toolTip);
+  chartGroup.call(toolTip);
 
   circlesGroup.on("mouseover", function(data) {
     toolTip.show(data);
