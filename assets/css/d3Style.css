@@ -23,7 +23,6 @@
   cursor: pointer;
 }
 
-/* font size dependent on radius, see app.js */
 .stateText {
   font-family: sans-serif;
   fill: #fff;
@@ -50,6 +49,24 @@
   text-transform: capitalize;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 4px;
+}
+
+.d3-tip:after {
+  box-sizing: border-box;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+.d3-tip.n:after {
+  margin: 0;
+  top: 40%;
+  left: 52%;
+  transform: rotate(-90deg);
 }
 
 /* Mobile Rules */
