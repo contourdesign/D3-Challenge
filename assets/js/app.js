@@ -2,8 +2,6 @@
 
 function makeResponsive() {
 
-
-// If SVG Area is not Empty When Browser Loads, Remove & Replace with a Resized Version of Chart
   var svgArea = d3.select("body").select("svg");
 
 // Clear SVG is Not Empty
@@ -24,7 +22,7 @@ function makeResponsive() {
     var width = svgWidth - margin.left - margin.right;
     var height = svgHeight - margin.top - margin.bottom;
     
-    // create SVG wrapper and append a group to hold the chart 
+    // create SVG wrapper 
     var svg = d3
       .select("#scatter")
       .append("svg")
@@ -127,7 +125,7 @@ function makeResponsive() {
         if (chosenYAxis === "healthcare") {
           var ylabel = "Lacks Healthcare (%): ";
         }
-        else if (chosenXAxis === "obesity") {
+        else if (chosenYAxis === "obesity") {
             var ylabel = "Obesity (%): ";
         }
         else {
@@ -135,7 +133,7 @@ function makeResponsive() {
         }
       
         var toolTip = d3.tip()
-          .attr("class", "tooltip d3-tip")
+          .attr("class", "d3-tip")
           .offset([80, -60])
           .html(d => {
             return (`<strong>${d.abbr}</strong><br>${ylabel}${d[chosenYAxis]}<br>${xlabel}${d[chosenXAxis]}`);
@@ -360,7 +358,7 @@ function makeResponsive() {
               circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis,  yLinearScale, chosenYAxis);
       
               // updates tooltip
-              circlesGroup = updateToolTip(circlesGroup, chosenYAxis);
+              circlesGroup = updateToolTip(circlesGroup, chosenXAxis, chosenYAxis);
               
               // update labels
               circleLabels = renderLabels(circleLabels, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
